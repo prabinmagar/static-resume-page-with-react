@@ -1,0 +1,79 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 992px) {
+    padding: 0 1rem;
+  }
+}
+
+.diamond-shapes-group {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  img {
+    width: 20px;
+    margin-left: -8px;
+  }
+}
+
+.dotted-border-left {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $payne-gray;
+  }
+}
+
+.dots-shape {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #262833;
+  position: relative;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: $mauve;
+    border-radius: 100%;
+  }
+}
+
+.resume-block {
+    div[class*="-list"]{
+        margin-left: 16px;
+        row-gap: 0;
+
+        @media(max-width: 576px){
+            padding: 8px 0;
+        }
+    }
+
+  // adding dots to the bottom
+  &:last-child {
+    margin-bottom: 40px;
+
+    div[class*="-content"] {
+      position: relative;
+      & > .dots-shape {
+        position: absolute;
+        bottom: 0;
+        left: -10px;
+      }
+    }
+  }
+}
